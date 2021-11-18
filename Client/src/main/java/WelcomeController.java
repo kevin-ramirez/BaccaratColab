@@ -62,8 +62,8 @@ public class WelcomeController implements Initializable {
         info = data;
     }
 
-    public String returnMessage() {
-        return info.message;
+    public String returnBetAmount() {
+        return info.betAmount;
     }
 
     public String returnServerMessage() {

@@ -38,8 +38,8 @@ public class Client extends Thread {
         }
     }
 
-    public void send(String message) {
-        info.message = message;
+    public void send(String bet) {
+        info.betAmount = bet;
         try {
             out.reset();
             out.flush();

@@ -34,7 +34,6 @@ public class PlayController implements Initializable {
         String message = testField.getText();
         testField.clear();
         WelcomeController.clientConnection.send(message);
-        //testView.getItems().add(view.returnServerMessage());
     }
 
     @FXML
