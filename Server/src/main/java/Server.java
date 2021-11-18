@@ -46,6 +46,9 @@ public class Server {
         ObjectInputStream in;
         ObjectOutputStream out;
         BaccaratInfo info = new BaccaratInfo();
+        BaccaratGame game = new BaccaratGame();
+        BaccaratGameLogic logic = new BaccaratGameLogic();
+        BaccaratDealer dealer =  new BaccaratDealer();
 
         ClientThread(Socket s, int count) {
             this.connection = s;
@@ -73,11 +76,17 @@ public class Server {
                 try {
                     BaccaratInfo data = (BaccaratInfo)in.readObject();
 
-                    String message = data.message;
+                    /*
+                    Dealer;
+                    GmaeLogic;
 
-                    callback.accept("Client #: " + count + " sent " + data.message);
+                    do calcuation do logic generata cards
 
-                    info.serverMessage = "Hi From Server! " + message;
+                    */
+
+                    callback.accept("Client #: " + count + " sent $:" + data.betAmount);
+
+                    info.serverMessage = "Hi From Server! " + data.betAmount;
 
                     out.reset();
                     out.flush();
