@@ -78,11 +78,17 @@ public class Server {
                     dealer.generateDeck();
                     System.out.println(dealer.deckSize());
 
-                    /*
-                    Dealer;
-                    GmaeLogic;
+                    Card myCard = dealer.drawOne();
 
-                    do calcuation do logic generata cards
+                    System.out.println(myCard.getSuite() + " " + myCard.getValue());
+                    System.out.println(dealer.deckSize());
+
+
+                    /*
+                    Card, Card, Card
+
+                    King 13
+                    K13
 
                     */
 
