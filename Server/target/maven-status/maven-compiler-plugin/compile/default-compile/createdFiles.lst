@@ -1,10 +1,14 @@
-WelcomeController.class
-GameServer.class
+BaccaratDealer.class
 BaccaratInfo.class
+BaccaratGame.class
+JavaFXTemplate.class
+WelcomeController.class
+BaccaratGameLogic.class
+GameServer.class
 Server$ClientThread.class
 JavaFXTemplate$1.class
 Server.class
+Card.class
 PlayController.class
 Server$TheServer.class
-JavaFXTemplate.class
 GameServer$1.class

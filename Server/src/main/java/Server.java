@@ -61,12 +61,11 @@ public class Server {
                 out = new ObjectOutputStream(connection.getOutputStream());
                 connection.setTcpNoDelay(true);
 
-//                info.serverMessage = "Hi From Server!";
-//                System.out.println("Was I called");
-//
-//                out.reset();
-//                out.flush();
-//                out.writeObject(info);
+                info.serverMessage = "Hi From Server!";
+
+                out.reset();
+                out.flush();
+                out.writeObject(info);
 
             } catch(Exception e) {
                 System.out.println("Streams not open");
@@ -75,6 +74,9 @@ public class Server {
             while(true) {
                 try {
                     BaccaratInfo data = (BaccaratInfo)in.readObject();
+
+                    dealer.generateDeck();
+                    System.out.println(dealer.deckSize());
 
                     /*
                     Dealer;
