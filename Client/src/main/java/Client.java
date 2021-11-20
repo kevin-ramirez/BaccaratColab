@@ -40,6 +40,18 @@ public class Client extends Thread {
 
     public void send(String bet) {
         info.betAmount = bet;
+        info.playAgain = false;
+        try {
+            out.reset();
+            out.flush();
+            out.writeObject(info);
+        } catch(Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public void sendPlayAgain() {
+        info.playAgain = true;
         try {
             out.reset();
             out.flush();

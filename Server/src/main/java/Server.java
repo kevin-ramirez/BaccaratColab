@@ -75,7 +75,11 @@ public class Server {
                 try {
                     BaccaratInfo data = (BaccaratInfo)in.readObject();
 
+                    //double myBet = Double.parseDouble(data.betAmount);
+                    //System.out.println(myBet);
+
                     dealer.generateDeck();
+
                     System.out.println(dealer.deckSize());
 
                     Card myCard = dealer.drawOne();
@@ -83,8 +87,12 @@ public class Server {
                     System.out.println(myCard.getSuite() + " " + myCard.getValue());
                     System.out.println(dealer.deckSize());
 
-
                     /*
+                    Card has Suite number
+                    ArrayList<Card> playerHand = dealHand()
+                    dealerHand = dealHand()
+
+
                     Card, Card, Card
 
                     King 13
@@ -96,6 +104,9 @@ public class Server {
 
                     info.serverMessage = "Hi From Server! " + data.betAmount;
 
+                    /*
+                    System.out to test
+                     */
                     out.reset();
                     out.flush();
                     out.writeObject(info);

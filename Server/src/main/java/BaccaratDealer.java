@@ -31,4 +31,14 @@ public class BaccaratDealer {
     public void shuffleDeck() {
         Collections.shuffle(deck);
     }
+
+    public ArrayList<Card> dealHand() {
+        Card first = drawOne();
+        Card second = drawOne();
+        ArrayList<Card> arr = new ArrayList<>();
+        arr.add(first);
+        arr.add(second);
+        return arr;
+    }
+
 }

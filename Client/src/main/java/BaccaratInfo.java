@@ -6,9 +6,11 @@ public class BaccaratInfo implements Serializable {
     String serverMessage;
     String playerCards;
     String dealerCards;
+    Boolean playAgain;
 
     BaccaratInfo() {
         betAmount = "";
         serverMessage = "";
+        playAgain = false;
     }
 }
