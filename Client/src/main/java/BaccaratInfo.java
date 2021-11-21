@@ -10,6 +10,9 @@ public class BaccaratInfo implements Serializable {
     ArrayList<Card> dealerCards;
     Card playerThirdCard;
     Card bankerThirdCard;
+    String whoWon;
+    String playerHandValue;
+    String bankerHandValue;
 
     BaccaratInfo() {
         betAmount = "";
@@ -19,5 +22,8 @@ public class BaccaratInfo implements Serializable {
         dealerCards = null;
         playerThirdCard = null;
         bankerThirdCard = null;
+        whoWon = "";
+        bankerHandValue = "";
+        playerHandValue = "";
     }
 }
