@@ -3,7 +3,12 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -14,9 +19,54 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <ListView fx:id="testView" layoutX="200.0" layoutY="56.0" prefHeight="200.0" prefWidth="200.0" />
-      <TextField fx:id="testField" layoutX="215.0" layoutY="271.0" />
-      <Button fx:id="testButton" layoutX="270.0" layoutY="318.0" mnemonicParsing="false" onAction="#testButtonHandle" text="Send" />
-      <Button fx:id="displayBtn" layoutX="61.0" layoutY="318.0" mnemonicParsing="false" onAction="#displayBtnHandler" text="Display Text" />
+      <ListView fx:id="testView" layoutX="30.0" layoutY="331.0" prefHeight="49.0" prefWidth="161.0" />
+      <TextField fx:id="testField" layoutX="215.0" layoutY="343.0" />
+      <VBox layoutX="464.0" layoutY="271.0" prefHeight="96.0" prefWidth="100.0" spacing="10.0">
+         <children>
+            <Button fx:id="testButton" mnemonicParsing="false" onAction="#testButtonHandle" prefHeight="24.0" prefWidth="133.0" text="Send" />
+            <Button fx:id="displayBtn" mnemonicParsing="false" onAction="#displayBtnHandler" text="Display Text" />
+            <Button mnemonicParsing="false" prefHeight="24.0" prefWidth="121.0" text="Exit" />
+         </children>
+      </VBox>
+      <Text layoutX="96.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="450.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Banker">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <GridPane layoutX="27.0" layoutY="103.0" prefHeight="150.0" prefWidth="270.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ImageView fx:id="playerCardOne" fitHeight="154.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="playerCardTwo" fitHeight="154.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
+            <ImageView fx:id="playerCardThree" fitHeight="154.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" />
+         </children>
+      </GridPane>
+      <GridPane layoutX="315.0" layoutY="103.0" prefHeight="150.0" prefWidth="270.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ImageView fx:id="bankerCardOne" fitHeight="154.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="bankerCardTwo" fitHeight="154.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
+            <ImageView fx:id="bankerCardThree" fitHeight="154.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" />
+         </children>
+      </GridPane>
    </children>
 </AnchorPane>

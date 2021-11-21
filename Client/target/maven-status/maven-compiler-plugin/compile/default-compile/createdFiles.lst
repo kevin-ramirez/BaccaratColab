@@ -1,8 +1,10 @@
-WelcomeController.class
 BaccaratInfo.class
-Client.class
-GameScene$1.class
-JavaFXTemplate$1.class
-PlayController.class
-JavaFXTemplate.class
 GameScene.class
+Card.class
+PlayController.class
+WelcomeController.class
+GameScene$1.class
+Client.class
+JavaFXTemplate.class
+JavaFXTemplate$1.class
+GenerateCardImages.class
