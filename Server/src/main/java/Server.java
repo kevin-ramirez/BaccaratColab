@@ -83,11 +83,14 @@ public class Server {
                     //System.out.println(dealer.deckSize());
 
                     ArrayList<Card> playerHand = dealer.dealHand();
+                    info.playerCards = playerHand;
+
 
                     //System.out.println(dealer.deckSize());
 
 
                     ArrayList<Card> bankerHand = dealer.dealHand();
+                    info.dealerCards = bankerHand;
 
                     //System.out.println(dealer.deckSize());
 
@@ -121,12 +124,14 @@ public class Server {
                         //System.out.println("Checkpoint 1");
                         if (BaccaratGameLogic.evaluatePlayerDraw(playerHand)) {
                             Card playerAdditional = dealer.drawOne();
+                            info.playerThirdCard = playerAdditional;
                             playerHand.add(playerAdditional);
                             System.out.println(playerHand.get(2).getSuite());
                             System.out.println(playerHand.get(2).getValue());
                             if (BaccaratGameLogic.evaluateBankerDraw(bankerHand, playerHand.get(2))) {
                                 //System.out.println("Checkpoint 7");
                                 Card bankerAdditional = dealer.drawOne();
+                                info.bankerThirdCard = bankerAdditional;
                                 bankerHand.add(bankerAdditional);
                                 System.out.println(bankerHand.get(2).getSuite());
                                 System.out.println(bankerHand.get(2).getValue());
@@ -138,6 +143,7 @@ public class Server {
                             if (BaccaratGameLogic.evaluateBankerDraw(bankerHand, null)) {
                                 //System.out.println("Checkpoint 7");
                                 Card bankerAdditional = dealer.drawOne();
+                                info.bankerThirdCard = bankerAdditional;
                                 bankerHand.add(bankerAdditional);
                                 System.out.println(bankerHand.get(2).getSuite());
                                 System.out.println(bankerHand.get(2).getValue());
