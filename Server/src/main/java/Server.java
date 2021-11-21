@@ -83,11 +83,12 @@ public class Server {
                     //System.out.println(dealer.deckSize());
 
                     ArrayList<Card> playerHand = dealer.dealHand();
-
+                    info.playerCards = playerHand;
                     //System.out.println(dealer.deckSize());
 
 
                     ArrayList<Card> bankerHand = dealer.dealHand();
+                    info.dealerCards = bankerHand;
 
                     //System.out.println(dealer.deckSize());
 
