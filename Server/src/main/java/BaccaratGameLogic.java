@@ -51,50 +51,102 @@ public class BaccaratGameLogic {
             return true;
         }
 
-        if (handTotal(hand) >= 7){
+        else if (handTotal(hand) >= 7){
             return false;
         }
 
-
-        if (handTotal(hand) == 3 && cardValue(playerCard) == 8){
-            return false;
-        }
-
-        if (handTotal(hand) == 3 && cardValue(playerCard) != 8){
+        else if ((handTotal(hand)) <= 5 && (playerCard == null)){
             return true;
         }
 
-        if (handTotal(hand) == 4 && (cardValue(playerCard) == 0 ||
-                cardValue(playerCard) == 1 || cardValue(playerCard) == 8 || cardValue(playerCard) == 9)){
-            return false;
-        }
-
-        if (handTotal(hand) == 4 && (playerCard == null ||
-                cardValue(playerCard) == 2 || cardValue(playerCard) == 3 || cardValue(playerCard) == 4 ||
-                cardValue(playerCard) == 5 || cardValue(playerCard) == 6 || cardValue(playerCard) == 7)){
+        else if ((handTotal(hand)) <= 3 && (cardValue(playerCard) == 0)) {
             return true;
         }
 
-        if (handTotal(hand) == 5 && (playerCard == null || cardValue(playerCard) == 4 || cardValue(playerCard) == 5
-                || cardValue(playerCard) == 6 || cardValue(playerCard) == 7)){
+        else if ((handTotal(hand)) <= 3 && (cardValue(playerCard) == 1)) {
             return true;
         }
 
-        if (handTotal(hand) == 5 && (cardValue(playerCard) == 0 || cardValue(playerCard) == 1
-                || cardValue(playerCard) == 2 || cardValue(playerCard) == 3 || cardValue(playerCard) == 8
-                || cardValue(playerCard) == 9)){
-            return false;
-        }
-
-        if (handTotal(hand) == 6 && (cardValue(playerCard) == 6 || cardValue(playerCard) == 7)){
+        else if ((handTotal(hand)) <= 4 && (cardValue(playerCard) == 2)) {
             return true;
         }
 
-        if (handTotal(hand) == 6 && (playerCard == null || cardValue(playerCard) == 0 || cardValue(playerCard) == 1)
-                || cardValue(playerCard) == 2 || cardValue(playerCard) == 3 || cardValue(playerCard) == 4 || cardValue(playerCard) == 5
-                || cardValue(playerCard) == 8 || cardValue(playerCard) == 9){
-            return false;
+        else if ((handTotal(hand)) <= 4 && (cardValue(playerCard) == 3)) {
+            return true;
         }
+
+        else if ((handTotal(hand)) <= 5 && (cardValue(playerCard) == 4)) {
+            return true;
+        }
+
+        else if ((handTotal(hand)) <= 5 && (cardValue(playerCard) == 5)) {
+            return true;
+        }
+
+        else if ((handTotal(hand)) <= 6 && (cardValue(playerCard) == 6)) {
+            return true;
+        }
+
+        else if ((handTotal(hand)) <= 6 && (cardValue(playerCard) == 7)) {
+            return true;
+        }
+
+        else if ((handTotal(hand)) <= 2 && (cardValue(playerCard) == 8)) {
+            return true;
+        }
+
+        else if ((handTotal(hand)) <= 3 && (cardValue(playerCard) == 9)) {
+            return true;
+        }
+
+
+
+
+
+
+
+
+
+
+//        if (handTotal(hand) == 3 && cardValue(playerCard) == 8){
+//            return false;
+//        }
+//
+//        if (handTotal(hand) == 3 && cardValue(playerCard) != 8){
+//            return true;
+//        }
+//
+//        if (handTotal(hand) == 4 && (cardValue(playerCard) == 0 ||
+//                cardValue(playerCard) == 1 || cardValue(playerCard) == 8 || cardValue(playerCard) == 9)){
+//            return false;
+//        }
+//
+//        if (handTotal(hand) == 4 && (playerCard == null ||
+//                cardValue(playerCard) == 2 || cardValue(playerCard) == 3 || cardValue(playerCard) == 4 ||
+//                cardValue(playerCard) == 5 || cardValue(playerCard) == 6 || cardValue(playerCard) == 7)){
+//            return true;
+//        }
+//
+//        if (handTotal(hand) == 5 && (playerCard == null || cardValue(playerCard) == 4 || cardValue(playerCard) == 5
+//                || cardValue(playerCard) == 6 || cardValue(playerCard) == 7)){
+//            return true;
+//        }
+//
+//        if (handTotal(hand) == 5 && (cardValue(playerCard) == 0 || cardValue(playerCard) == 1
+//                || cardValue(playerCard) == 2 || cardValue(playerCard) == 3 || cardValue(playerCard) == 8
+//                || cardValue(playerCard) == 9)){
+//            return false;
+//        }
+//
+//        if (handTotal(hand) == 6 && (cardValue(playerCard) == 6 || cardValue(playerCard) == 7)){
+//            return true;
+//        }
+//
+//        if (handTotal(hand) == 6 && (playerCard == null || cardValue(playerCard) == 0 || cardValue(playerCard) == 1)
+//                || cardValue(playerCard) == 2 || cardValue(playerCard) == 3 || cardValue(playerCard) == 4 || cardValue(playerCard) == 5
+//                || cardValue(playerCard) == 8 || cardValue(playerCard) == 9){
+//            return false;
+//        }
 
         return false;
     }

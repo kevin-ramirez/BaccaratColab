@@ -134,14 +134,15 @@ public class Server {
                             }
                         }
 
-                        //System.out.println("Checkpoint 2");
-                        if (BaccaratGameLogic.evaluateBankerDraw(bankerHand, null)) {
-                            //System.out.println("Checkpoint 7");
-                            Card bankerAdditional = dealer.drawOne();
-                            bankerHand.add(bankerAdditional);
-                            System.out.println(bankerHand.get(2).getSuite());
-                            System.out.println(bankerHand.get(2).getValue());
-                            //System.out.println("Checkpoint 8");
+                        if (!BaccaratGameLogic.evaluatePlayerDraw(playerHand)){
+                            if (BaccaratGameLogic.evaluateBankerDraw(bankerHand, null)) {
+                                //System.out.println("Checkpoint 7");
+                                Card bankerAdditional = dealer.drawOne();
+                                bankerHand.add(bankerAdditional);
+                                System.out.println(bankerHand.get(2).getSuite());
+                                System.out.println(bankerHand.get(2).getValue());
+                                //System.out.println("Checkpoint 8");
+                            }
                         }
 
                         //System.out.println("Checkpoint 9");

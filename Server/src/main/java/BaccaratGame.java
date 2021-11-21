@@ -8,6 +8,7 @@ public class BaccaratGame {
     double totalWinnings;
 
     public double evaluateWinnings() {
+
         return 0.0;
     }
 }
