@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class WelcomeController implements Initializable {
@@ -68,6 +69,14 @@ public class WelcomeController implements Initializable {
 
     public String returnServerMessage() {
         return info.serverMessage;
+    }
+
+    public ArrayList<Card> returnPlayerCards() {
+        return info.playerCards;
+    }
+
+    public ArrayList<Card> returnDealerCards() {
+        return info.dealerCards;
     }
 
 }
