@@ -83,11 +83,12 @@ public class Server {
                     //System.out.println(dealer.deckSize());
 
                     ArrayList<Card> playerHand = dealer.dealHand();
-
+                    info.playerCards = playerHand;
                     //System.out.println(dealer.deckSize());
 
 
                     ArrayList<Card> bankerHand = dealer.dealHand();
+                    info.dealerCards = bankerHand;
 
                     //System.out.println(dealer.deckSize());
 
@@ -118,37 +119,16 @@ public class Server {
                     }
 
                     else {
-                        //System.out.println("Checkpoint 1");
                         if (BaccaratGameLogic.evaluatePlayerDraw(playerHand)) {
                             Card playerAdditional = dealer.drawOne();
                             playerHand.add(playerAdditional);
                             System.out.println(playerHand.get(2).getSuite());
                             System.out.println(playerHand.get(2).getValue());
-                            if (BaccaratGameLogic.evaluateBankerDraw(bankerHand, playerHand.get(2))) {
-                                //System.out.println("Checkpoint 7");
-                                Card bankerAdditional = dealer.drawOne();
-                                bankerHand.add(bankerAdditional);
-                                System.out.println(bankerHand.get(2).getSuite());
-                                System.out.println(bankerHand.get(2).getValue());
-                                //System.out.println("Checkpoint 8");
-                            }
                         }
 
-                        //System.out.println("Checkpoint 2");
-                        if (BaccaratGameLogic.evaluateBankerDraw(bankerHand, null)) {
-                            //System.out.println("Checkpoint 7");
-                            Card bankerAdditional = dealer.drawOne();
-                            bankerHand.add(bankerAdditional);
-                            System.out.println(bankerHand.get(2).getSuite());
-                            System.out.println(bankerHand.get(2).getValue());
-                            //System.out.println("Checkpoint 8");
-                        }
-
-                        //System.out.println("Checkpoint 9");
                         System.out.println(BaccaratGameLogic.handTotal(playerHand));
                         System.out.println(BaccaratGameLogic.handTotal(bankerHand));
                         System.out.println(BaccaratGameLogic.whoWon(playerHand, bankerHand));
-                        //System.out.println("Checkpoint 10");
                     }
 
 

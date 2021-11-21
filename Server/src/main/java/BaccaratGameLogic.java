@@ -27,76 +27,26 @@ public class BaccaratGameLogic {
     }
 
     public static int handTotal(ArrayList<Card> hand) {
-        //System.out.println("Checkpoint 4");
 
-        int total = 0;
-        for (int i = 0; i < hand.size(); i++){
-            total += cardValue(hand.get(i));
-        }
+
+        int card1 = cardValue(hand.get(0));
+        int card2 = cardValue(hand.get(1));
+
+        int total = card1 + card2;
 
         if (total >= 10){
             return (total - 10);
         }
 
         else {
-            //System.out.println("Does it return 0?");
             return total;
         }
     }
 
     public static boolean evaluateBankerDraw(ArrayList<Card> hand, Card playerCard) {
-        //System.out.println("Checkpoint 3");
-        if (handTotal(hand) <= 2){
-            //System.out.println("Checkpoint 5");
-            return true;
-        }
-
-        if (handTotal(hand) >= 7){
-            return false;
-        }
 
 
-        if (handTotal(hand) == 3 && cardValue(playerCard) == 8){
-            return false;
-        }
-
-        if (handTotal(hand) == 3 && cardValue(playerCard) != 8){
-            return true;
-        }
-
-        if (handTotal(hand) == 4 && (cardValue(playerCard) == 0 ||
-                cardValue(playerCard) == 1 || cardValue(playerCard) == 8 || cardValue(playerCard) == 9)){
-            return false;
-        }
-
-        if (handTotal(hand) == 4 && (playerCard == null ||
-                cardValue(playerCard) == 2 || cardValue(playerCard) == 3 || cardValue(playerCard) == 4 ||
-                cardValue(playerCard) == 5 || cardValue(playerCard) == 6 || cardValue(playerCard) == 7)){
-            return true;
-        }
-
-        if (handTotal(hand) == 5 && (playerCard == null || cardValue(playerCard) == 4 || cardValue(playerCard) == 5
-                || cardValue(playerCard) == 6 || cardValue(playerCard) == 7)){
-            return true;
-        }
-
-        if (handTotal(hand) == 5 && (cardValue(playerCard) == 0 || cardValue(playerCard) == 1
-                || cardValue(playerCard) == 2 || cardValue(playerCard) == 3 || cardValue(playerCard) == 8
-                || cardValue(playerCard) == 9)){
-            return false;
-        }
-
-        if (handTotal(hand) == 6 && (cardValue(playerCard) == 6 || cardValue(playerCard) == 7)){
-            return true;
-        }
-
-        if (handTotal(hand) == 6 && (playerCard == null || cardValue(playerCard) == 0 || cardValue(playerCard) == 1)
-                || cardValue(playerCard) == 2 || cardValue(playerCard) == 3 || cardValue(playerCard) == 4 || cardValue(playerCard) == 5
-                || cardValue(playerCard) == 8 || cardValue(playerCard) == 9){
-            return false;
-        }
-
-        return false;
+        return true;
     }
 
     public static boolean evaluatePlayerDraw(ArrayList<Card> hand) {
@@ -107,9 +57,7 @@ public class BaccaratGameLogic {
     }
 
     public static int cardValue(Card myCard){
-        //System.out.println("Checkpoint 5");
         if (myCard.getValue() >= 10) {
-            //System.out.println("Enters if statement >= 10");
             return 0;
         }
         else {
