@@ -47,7 +47,7 @@ public class Server {
         ObjectOutputStream out;
         BaccaratInfo info = new BaccaratInfo();
         BaccaratGame game = new BaccaratGame();
-        BaccaratGameLogic logic = new BaccaratGameLogic();
+        BaccaratGameLogic gameLogic = new BaccaratGameLogic();
         BaccaratDealer dealer =  new BaccaratDealer();
 
         ClientThread(Socket s, int count) {
@@ -80,12 +80,81 @@ public class Server {
 
                     dealer.generateDeck();
 
-                    System.out.println(dealer.deckSize());
+                    //System.out.println(dealer.deckSize());
 
-                    Card myCard = dealer.drawOne();
+                    ArrayList<Card> playerHand = dealer.dealHand();
 
-                    System.out.println(myCard.getSuite() + " " + myCard.getValue());
-                    System.out.println(dealer.deckSize());
+                    //System.out.println(dealer.deckSize());
+
+
+                    ArrayList<Card> bankerHand = dealer.dealHand();
+
+                    //System.out.println(dealer.deckSize());
+
+                    System.out.println(playerHand.get(0).getSuite());
+                    System.out.println(playerHand.get(0).getValue());
+                    System.out.println(playerHand.get(1).getSuite());
+                    System.out.println(playerHand.get(1).getValue());
+
+
+
+                    System.out.println(bankerHand.get(0).getSuite());
+                    System.out.println(bankerHand.get(0).getValue());
+                    System.out.println(bankerHand.get(1).getSuite());
+                    System.out.println(bankerHand.get(1).getValue());
+
+                    if(BaccaratGameLogic.isNatural(playerHand, bankerHand) == 0){
+                        System.out.println("Player has natural");
+                        System.out.println(BaccaratGameLogic.handTotal(playerHand));
+                        System.out.println(BaccaratGameLogic.handTotal(bankerHand));
+                        System.out.println(BaccaratGameLogic.whoWon(playerHand,bankerHand));
+                    }
+
+                    else if (BaccaratGameLogic.isNatural(playerHand, bankerHand) == 1){
+                        System.out.println("Banker has natural");
+                        System.out.println(BaccaratGameLogic.handTotal(playerHand));
+                        System.out.println(BaccaratGameLogic.handTotal(bankerHand));
+                        System.out.println(BaccaratGameLogic.whoWon(playerHand,bankerHand));
+                    }
+
+                    else {
+                        if (BaccaratGameLogic.evaluatePlayerDraw(playerHand)) {
+                            Card playerAdditional = dealer.drawOne();
+                            playerHand.add(playerAdditional);
+                            System.out.println(playerHand.get(2).getSuite());
+                            System.out.println(playerHand.get(2).getValue());
+                        }
+
+                        System.out.println(BaccaratGameLogic.handTotal(playerHand));
+                        System.out.println(BaccaratGameLogic.handTotal(bankerHand));
+                        System.out.println(BaccaratGameLogic.whoWon(playerHand, bankerHand));
+                    }
+
+
+
+
+
+
+                    //bankerHand.get(0).getSuite();
+
+
+
+
+
+                    //Card myCard = dealer.drawOne();
+
+                    //System.out.println(playerHand.get(0) + " " + myCard.getValue());
+
+
+
+
+
+
+                    //BaccaratGameLogic logic = new BaccaratGameLogic();
+
+                    //System.out.println(bankerHand.get(0));
+
+                    //System.out.println(dealer.deckSize());
 
                     /*
                     Card has Suite number
