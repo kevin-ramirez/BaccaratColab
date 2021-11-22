@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -24,8 +25,9 @@
       <VBox layoutX="464.0" layoutY="271.0" prefHeight="96.0" prefWidth="100.0" spacing="10.0">
          <children>
             <Button fx:id="testButton" mnemonicParsing="false" onAction="#testButtonHandle" prefHeight="24.0" prefWidth="133.0" text="Send" />
-            <Button fx:id="displayBtn" mnemonicParsing="false" onAction="#displayBtnHandler" text="Display Text" />
-            <Button mnemonicParsing="false" prefHeight="24.0" prefWidth="121.0" text="Exit" />
+            <Button fx:id="displayBtn" mnemonicParsing="false" onAction="#displayBtnHandler" prefHeight="24.0" prefWidth="117.0" text="Begin" />
+            <Button fx:id="playAgainBtn" mnemonicParsing="false" onAction="#playAgainBtnHandler" prefHeight="24.0" prefWidth="121.0" text="Play again" />
+            <Button mnemonicParsing="false" prefHeight="24.0" prefWidth="109.0" text="Exit" />
          </children>
       </VBox>
       <Text layoutX="96.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player">
@@ -68,5 +70,18 @@
             <ImageView fx:id="bankerCardThree" fitHeight="154.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" />
          </children>
       </GridPane>
+      <HBox fx:id="btnHbox" layoutX="203.0" layoutY="286.0" prefHeight="33.0" prefWidth="195.0" spacing="10.0">
+         <children>
+            <Button fx:id="playerBtn" mnemonicParsing="false" onAction="#playerBtnHandler" text="Player" />
+            <Button fx:id="drawBtn" mnemonicParsing="false" onAction="#drawBtnHandler" text="Draw" />
+            <Button fx:id="bankerBtn" mnemonicParsing="false" onAction="#bankerBtnHandler" text="Banker" />
+         </children>
+      </HBox>
+      <Text fx:id="winTotal" layoutX="46.0" layoutY="308.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Winnings:" wrappingWidth="100.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Text>
+      <Text fx:id="whoWon" layoutX="246.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Who Won" wrappingWidth="110.0" />
    </children>
 </AnchorPane>

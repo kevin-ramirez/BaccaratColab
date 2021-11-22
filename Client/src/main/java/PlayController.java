@@ -5,6 +5,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 
 import java.net.URL;
@@ -21,6 +22,7 @@ public class PlayController implements Initializable {
     GenerateCardImages generate = new GenerateCardImages();
     WelcomeController view = new WelcomeController();
     HashMap<String, Image> cardMap = generate.createCardDeck();
+    String betting;
 
     @FXML
     ListView<String> testView = new ListView<>();
@@ -53,10 +55,54 @@ public class PlayController implements Initializable {
     ImageView bankerCardThree;
 
     @FXML
+    Button playerBtn;
+
+    @FXML
+    Button drawBtn;
+
+    @FXML
+    Button bankerBtn;
+
+    @FXML
+    HBox btnHbox;
+
+    @FXML
+    Button playAgainBtn;
+
+    @FXML
+    Text winTotal;
+
+    @FXML
+    Text whoWon;
+
+    @FXML
+    public void playAgainBtnHandler() {
+        WelcomeController.clientConnection.sendPlayAgain();
+        playerCardOne.setImage(null);
+        playerCardTwo.setImage(null);
+        whoWon.setText("");
+    }
+
+    @FXML
+    public void playerBtnHandler() {
+        betting = "Player";
+    }
+
+    @FXML
+    public void drawBtnHandler() {
+        betting = "Draw";
+    }
+
+    @FXML
+    public void bankerBtnHandler() {
+        betting = "Banker";
+    }
+
+    @FXML
     public void testButtonHandle() {
-        String message = testField.getText();
+        String bet = testField.getText();
         testField.clear();
-        WelcomeController.clientConnection.send(message);
+        WelcomeController.clientConnection.send(bet, betting);
     }
 
     @FXML
@@ -72,6 +118,9 @@ public class PlayController implements Initializable {
         value = String.valueOf(view.returnPlayerCards().get(1).getValue());
         key = value + view.returnPlayerCards().get(1).getSuite().charAt(0);
         playerCardTwo.setImage(cardMap.get(key));
+        whoWon.setText(view.returnWhoWon());
+        Double amount = view.returnWinnings();
+        winTotal.setText("Winnings: " + String.valueOf(amount));
     }
 
 }

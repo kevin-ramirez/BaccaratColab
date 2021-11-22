@@ -79,4 +79,12 @@ public class WelcomeController implements Initializable {
         return info.dealerCards;
     }
 
+    public String returnWhoWon() {
+        return info.whoWon;
+    }
+
+    public double returnWinnings() {
+        return info.winnings;
+    }
+
 }

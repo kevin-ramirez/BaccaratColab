@@ -38,8 +38,9 @@ public class Client extends Thread {
         }
     }
 
-    public void send(String bet) {
+    public void send(String bet, String bettingOn) {
         info.betAmount = bet;
+        info.bettingOn = bettingOn;
         info.playAgain = false;
         try {
             out.reset();
