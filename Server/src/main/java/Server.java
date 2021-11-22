@@ -75,7 +75,12 @@ public class Server {
                 try {
                     BaccaratInfo data = (BaccaratInfo)in.readObject();
 
-                    //double myBet = Double.parseDouble(data.betAmount);
+                    double myBet = Double.parseDouble(data.betAmount);
+                    String betChoice = data.betChoice;
+
+                    betChoice = "Player";
+                    myBet = 20.0;
+
                     //System.out.println(myBet);
 
                     dealer.generateDeck();
@@ -108,13 +113,16 @@ public class Server {
 
                     if(BaccaratGameLogic.isNatural(playerHand, bankerHand) == 0){
                         System.out.println("Player has natural");
+                        info.whoWon = "Player";
                         System.out.println(BaccaratGameLogic.handTotal(playerHand));
                         System.out.println(BaccaratGameLogic.handTotal(bankerHand));
                         System.out.println(BaccaratGameLogic.whoWon(playerHand,bankerHand));
+
                     }
 
                     else if (BaccaratGameLogic.isNatural(playerHand, bankerHand) == 1){
                         System.out.println("Banker has natural");
+                        info.whoWon = "Banker";
                         System.out.println(BaccaratGameLogic.handTotal(playerHand));
                         System.out.println(BaccaratGameLogic.handTotal(bankerHand));
                         System.out.println(BaccaratGameLogic.whoWon(playerHand,bankerHand));
@@ -155,8 +163,24 @@ public class Server {
                         System.out.println(BaccaratGameLogic.handTotal(playerHand));
                         System.out.println(BaccaratGameLogic.handTotal(bankerHand));
                         System.out.println(BaccaratGameLogic.whoWon(playerHand, bankerHand));
+                        info.playerHandValue = String.valueOf(BaccaratGameLogic.handTotal(playerHand));
+                        info.bankerHandValue = String.valueOf(BaccaratGameLogic.handTotal(bankerHand));
+                        info.whoWon = BaccaratGameLogic.whoWon(playerHand, bankerHand);
+
+
                         //System.out.println("Checkpoint 10");
                     }
+
+                    //game.outCome(betChoice, info.whoWon, info.playerHandValue, info.bankerHandValue);
+
+                    game.outCome(betChoice, info.whoWon, BaccaratGameLogic.handTotal(playerHand), BaccaratGameLogic.handTotal(bankerHand));
+
+                    game.totalWinnings += game.evaluateWinnings();
+
+                    System.out.println(game.outCome(betChoice, info.whoWon, BaccaratGameLogic.handTotal(playerHand), BaccaratGameLogic.handTotal(bankerHand)));
+
+                    System.out.println(game.totalWinnings);
+
 
 
 

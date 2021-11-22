@@ -13,11 +13,11 @@ public class BaccaratGameLogic {
 
         if (playerDiff < bankerDiff)
         {
-            return "Player Won";
+            return "Player";
         }
 
         else if (bankerDiff < playerDiff){
-            return "Banker Won";
+            return "Banker";
         }
 
         else {

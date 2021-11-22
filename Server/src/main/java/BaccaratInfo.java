@@ -4,6 +4,7 @@ import java.util.ArrayList;
 public class BaccaratInfo implements Serializable {
     private static final long serialVersionUID = 1L;
     String betAmount;
+    String betChoice;
     String serverMessage;
     Boolean playAgain;
     ArrayList<Card> playerCards;
@@ -16,6 +17,7 @@ public class BaccaratInfo implements Serializable {
 
     BaccaratInfo() {
         betAmount = "";
+        betChoice = "";
         serverMessage = "";
         playAgain = false;
         playerCards = null;
